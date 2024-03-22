@@ -1,7 +1,6 @@
 # import numpy
 from numpy import *
 from numpy import random
-import matplotlib.pyplot as plt
 
 # initialize and array and print out the first element
 
@@ -61,11 +60,29 @@ print(y)
 data = genfromtxt('stockholm_td_adj.dat')
 print(data.shape)
 
-fig, ax = plt.subplots(figsize=(14,4))
-ax.plot(data[:,0]+data[:,1]/12.0+data[:,2]/365, data[:,5])
-ax.axis('tight')
-ax.set_title('tempeatures in Stockholm')
-ax.set_xlabel('year')
-ax.set_ylabel('temperature (C)')
+# generate data and save to csv file (fmt indicates how many spaces past decimal to round)
+M = random.rand(3,3)
+savetxt("random-matrix.csv", M, fmt='%.5f')
 
-plt.show()
+# array indexing and slicing (rows and columns)
+
+# entire second row
+print(M[1,:])
+
+# entire second column
+print(M[:,1])
+
+# 2d array indexing and slicing
+A = array([[n+m*10 for n in range(5)] for m in range(5)])
+
+# a block from the original array
+print(A[1:4, 1:4])
+
+# strides
+print(A[::2, ::2])
+
+# getting specific elements based row and column index
+row_indices = [1, 2, 3]
+col_indices = [1, 2, -1] # remember, index -1 means the last element
+
+print(A[row_indices, col_indices])
