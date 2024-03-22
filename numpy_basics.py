@@ -1,6 +1,7 @@
 # import numpy
 from numpy import *
 from numpy import random
+import matplotlib.pyplot as plt
 
 # initialize and array and print out the first element
 
@@ -45,3 +46,26 @@ print(M)
 
 # print 2d grid that prints out x-values between 0 and 3 uninclusive and y-values between 0 and 4 uninclusive
 print(mgrid[0:3, 0:4])
+
+# uniform random numbers in range [0,1] where arguments are in the form row/col
+x = random.rand(5,5)
+
+print(x)
+
+# standard normal distributed random numbers
+y = random.randn(5,5)
+
+print(y)
+
+# read and process data from stockholm data file
+data = genfromtxt('stockholm_td_adj.dat')
+print(data.shape)
+
+fig, ax = plt.subplots(figsize=(14,4))
+ax.plot(data[:,0]+data[:,1]/12.0+data[:,2]/365, data[:,5])
+ax.axis('tight')
+ax.set_title('tempeatures in Stockholm')
+ax.set_xlabel('year')
+ax.set_ylabel('temperature (C)')
+
+plt.show()
