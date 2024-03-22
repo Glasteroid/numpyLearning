@@ -86,3 +86,9 @@ row_indices = [1, 2, 3]
 col_indices = [1, 2, -1] # remember, index -1 means the last element
 
 print(A[row_indices, col_indices])
+
+# index masks (MUST BE AN ARRAY OF BOOLEAN DATA TYPE)
+B = array([n for n in range(5)])
+
+row_mask = array([True, False, True, False, False])
+print(B[row_mask])
